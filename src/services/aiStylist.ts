@@ -397,7 +397,7 @@ class AIStylist {
     } else if (weather.temperature > 85) {
       // Remove heavy layers for hot weather
       adapted.outfit.primaryItems = adapted.outfit.primaryItems.filter(
-        item => item.category !== 'outerwear' || item.name.includes('Lightweight') || item.name.includes('Linen')
+        item => item.category !== 'outerwear' || (item.name && (item.name.includes('Lightweight') || item.name.includes('Linen')))
       );
     }
 
