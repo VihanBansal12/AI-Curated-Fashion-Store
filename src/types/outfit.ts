@@ -1,3 +1,5 @@
+import { WeatherContext, Mood, EventType } from './index';
+
 export interface OutfitItem {
   id: string;
   name: string;
