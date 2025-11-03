@@ -1,4 +1,4 @@
-// File: /workspace/cmhioa2u400vppsik1dvxlf2g/AI-Curated-Fashion-Store/src/app/layout.tsx
+// File: C:\AI-Fashionsite\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

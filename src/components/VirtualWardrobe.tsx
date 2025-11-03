@@ -9,7 +9,7 @@ interface VirtualWardrobeProps {
 
 interface SavedOutfit extends Outfit {
   savedAt: string;
-  tags: string[];
+  tags?: string[];
   notes?: string;
 }
 
@@ -46,7 +46,9 @@ export default function VirtualWardrobe({ onBack }: VirtualWardrobeProps) {
   const getAllTags = (): string[] => {
     const tags = new Set<string>();
     savedOutfits.forEach(outfit => {
-      outfit.tags.forEach(tag => tags.add(tag));
+      if (outfit.tags && Array.isArray(outfit.tags)) {
+        outfit.tags.forEach(tag => tags.add(tag));
+      }
     });
     return Array.from(tags);
   };
@@ -57,7 +59,7 @@ export default function VirtualWardrobe({ onBack }: VirtualWardrobeProps) {
                          outfit.mood.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          outfit.eventType.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesTag = filterTag === 'all' || outfit.tags.includes(filterTag);
+    const matchesTag = filterTag === 'all' || (outfit.tags && outfit.tags.includes(filterTag));
 
     return matchesSearch && matchesTag;
   });
@@ -106,7 +108,7 @@ export default function VirtualWardrobe({ onBack }: VirtualWardrobeProps) {
             </div>
 
             {/* Tags */}
-            {selectedOutfit.tags.length > 0 && (
+            {selectedOutfit.tags && selectedOutfit.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedOutfit.tags.map((tag, index) => (
                   <span key={index} className="px-3 py-1 bg-accent bg-opacity-20 text-accent rounded-full text-small">
@@ -305,7 +307,7 @@ export default function VirtualWardrobe({ onBack }: VirtualWardrobeProps) {
                 </div>
 
                 {/* Tags */}
-                {outfit.tags.length > 0 && (
+                {outfit.tags && outfit.tags.length > 0 && (
                   <div className="flex flex-wrap gap-1 mt-2">
                     {outfit.tags.slice(0, 3).map((tag, index) => (
                       <span key={index} className="px-2 py-1 bg-accent bg-opacity-20 text-accent rounded text-xs">
