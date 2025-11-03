@@ -339,6 +339,9 @@ const fashionRules: FashionRule[] = [
   }
 ];
 
+// Add additional fashion rules to the main rules array
+const allFashionRules = [...fashionRules, ...additionalFashionRules];
+
 class AIStylist {
   private generateOutfitId(): string {
     return `outfit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
