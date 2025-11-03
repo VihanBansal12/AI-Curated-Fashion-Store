@@ -360,7 +360,7 @@ class AIStylist {
     let bestRule: FashionRule | null = null;
     let bestScore = 0;
 
-    for (const rule of fashionRules) {
+    for (const rule of allFashionRules) {
       let score = 0;
 
       // Exact matches get highest scores
