@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { WeatherCondition, Season, ManualWeatherInput } from '@/types';
 
 interface WeatherDisplayProps {
@@ -45,9 +45,9 @@ export default function WeatherDisplay({ onWeatherUpdate }: WeatherDisplayProps)
 
   const tempCategory = temperatureRanges[getTemperatureCategory(temperature) as keyof typeof temperatureRanges];
 
-  useEffect(() => {
+  const handleConfirmWeather = () => {
     onWeatherUpdate({ temperature, condition, season });
-  }, [temperature, condition, season, onWeatherUpdate]);
+  };
 
   return (
     <div className="space-y-6">
@@ -160,6 +160,16 @@ export default function WeatherDisplay({ onWeatherUpdate }: WeatherDisplayProps)
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Confirm Button */}
+      <div className="text-center">
+        <button
+          onClick={handleConfirmWeather}
+          className="btn-primary px-8 py-3"
+        >
+          Confirm Weather →
+        </button>
       </div>
     </div>
   );
