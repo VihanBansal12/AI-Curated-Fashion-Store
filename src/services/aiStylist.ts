@@ -1,7 +1,7 @@
 import { Mood, EventType, ManualWeatherInput, Outfit, OutfitItem, WeatherCondition, Season } from '@/types';
 import { additionalFashionRules } from '@/data/fashionRules';
 
-interface FashionRule {
+export interface FashionRule {
   id: string;
   mood: Mood;
   event: EventType;
