@@ -428,7 +428,7 @@ class AIStylist {
       weatherAppropriate: item.weatherAppropriate ?? true,
       category: item.category || 'top',
       color: item.color || '#000000',
-      imageUrl: `https://images.unsplash.com/photo-1594930102821-aea48c5b2c1d?w=400&h=400&fit=crop&auto=format&${item.name}`,
+      imageUrl: `https://images.unsplash.com/photo-1594930102821-aea48c5b2c1d?w=400&h=400&fit=crop&auto=format&${item.name || 'fashion'}`,
       brand: 'Premium Fashion House',
       priceRange: '$80-200'
     }));
